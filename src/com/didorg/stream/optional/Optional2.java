@@ -1,4 +1,4 @@
-package com.didorg.stream;
+package com.didorg.stream.optional;
 
 import java.util.Optional;
 import java.util.function.Supplier;

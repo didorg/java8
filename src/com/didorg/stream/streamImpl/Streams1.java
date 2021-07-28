@@ -1,4 +1,4 @@
-package com.didorg.stream;
+package com.didorg.stream.streamImpl;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,20 +8,20 @@ public class Streams1 {
 
     public static void main(String[] args) {
 
-        List<String> stringCollection = new ArrayList<>();
-        stringCollection.add("ddd2");
-        stringCollection.add("aaa2");
-        stringCollection.add("bbb1");
-        stringCollection.add("aaa1");
-        stringCollection.add("bbb3");
-        stringCollection.add("ccc");
-        stringCollection.add("bbb2");
-        stringCollection.add("ddd1");
+        List<String> strings = new ArrayList<>();
+        strings.add("ddd2");
+        strings.add("aaa2");
+        strings.add("bbb1");
+        strings.add("aaa1");
+        strings.add("bbb3");
+        strings.add("ccc");
+        strings.add("bbb2");
+        strings.add("ddd1");
 
 
         // filtering
 
-        stringCollection
+        strings
                 .stream()
                 .filter((s) -> s.startsWith("a"))
                 .forEach(System.out::println);
@@ -31,7 +31,7 @@ public class Streams1 {
 
         // sorting
 
-        stringCollection
+        strings
                 .stream()
                 .sorted()
                 .filter((s) -> s.startsWith("a"))
@@ -42,7 +42,7 @@ public class Streams1 {
 
         // mapping
 
-        stringCollection
+        strings
                 .stream()
                 .map(String::toUpperCase)
                 .sorted((a, b) -> b.compareTo(a))
@@ -53,19 +53,19 @@ public class Streams1 {
 
         // matching
 
-        boolean anyStartsWithA = stringCollection
+        boolean anyStartsWithA = strings
                 .stream()
                 .anyMatch((s) -> s.startsWith("a"));
 
         System.out.println(anyStartsWithA);      // true
 
-        boolean allStartsWithA = stringCollection
+        boolean allStartsWithA = strings
                 .stream()
                 .allMatch((s) -> s.startsWith("a"));
 
         System.out.println(allStartsWithA);      // false
 
-        boolean noneStartsWithZ = stringCollection
+        boolean noneStartsWithZ = strings
                 .stream()
                 .noneMatch((s) -> s.startsWith("z"));
 
@@ -74,7 +74,7 @@ public class Streams1 {
 
         // counting
 
-        long startsWithB = stringCollection
+        long startsWithB = strings
                 .stream()
                 .filter((s) -> s.startsWith("b"))
                 .count();
@@ -85,7 +85,7 @@ public class Streams1 {
         // reducing
 
         Optional<String> reduced =
-                stringCollection
+                strings
                         .stream()
                         .sorted()
                         .reduce((s1, s2) -> s1 + "#" + s2);

@@ -1,4 +1,4 @@
-package com.didorg.stream;
+package com.didorg.stream.streamImpl;
 
 import java.util.OptionalInt;
 import java.util.stream.IntStream;

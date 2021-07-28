@@ -1,4 +1,4 @@
-package com.didorg.stream;
+package com.didorg.stream.streamImpl;
 
 import java.util.Arrays;
 import java.util.List;

@@ -20,7 +20,6 @@ public class Streams1 {
 
 
         // filtering
-
         strings
                 .stream()
                 .filter((s) -> s.startsWith("a"))
@@ -28,9 +27,7 @@ public class Streams1 {
 
         // "aaa2", "aaa1"
 
-
         // sorting
-
         strings
                 .stream()
                 .sorted()
@@ -39,9 +36,7 @@ public class Streams1 {
 
         // "aaa1", "aaa2"
 
-
         // mapping
-
         strings
                 .stream()
                 .map(String::toUpperCase)
@@ -50,9 +45,7 @@ public class Streams1 {
 
         // "DDD2", "DDD1", "CCC", "BBB3", "BBB2", "AAA2", "AAA1"
 
-
         // matching
-
         boolean anyStartsWithA = strings
                 .stream()
                 .anyMatch((s) -> s.startsWith("a"));
@@ -73,7 +66,6 @@ public class Streams1 {
 
 
         // counting
-
         long startsWithB = strings
                 .stream()
                 .filter((s) -> s.startsWith("b"))
@@ -83,7 +75,6 @@ public class Streams1 {
 
 
         // reducing
-
         Optional<String> reduced =
                 strings
                         .stream()

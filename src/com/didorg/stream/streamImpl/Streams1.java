@@ -1,12 +1,25 @@
 package com.didorg.stream.streamImpl;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class Streams1 {
 
     public static void main(String[] args) {
+
+        String input = "Speedment";
+
+        String result = Stream.of(input.split(""))
+                .map(s -> s.charAt(0))
+                .sorted(Comparator.comparingInt(Character::toLowerCase))
+                .limit(5)
+                .map(String::valueOf)
+                .collect(Collectors.joining());
+        System.out.println(result); // -> deeem
 
         List<String> strings = new ArrayList<>();
         strings.add("ddd2");
@@ -17,7 +30,6 @@ public class Streams1 {
         strings.add("ccc");
         strings.add("bbb2");
         strings.add("ddd1");
-
 
         // filtering
         strings

@@ -9,47 +9,33 @@ public class Streams3 {
 
     public static final int MAX = 1000000;
 
-    public static void sortSequential() {
+    public static void main(String[] args) {
         List<String> values = new ArrayList<>(MAX);
         for (int i = 0; i < MAX; i++) {
             UUID uuid = UUID.randomUUID();
             values.add(uuid.toString());
         }
 
-        // sequential
-        long t0 = System.nanoTime();
+        countSequential(values);
+        countParallel(values);
+    }
 
+    public static void countSequential(List<String> values) {
+        long t0 = System.currentTimeMillis();
+        // long count = values.size();
         long count = values.stream().count();
         System.out.println(count);
+        long t1 = System.currentTimeMillis();
 
-        long t1 = System.nanoTime();
-
-        long millis = TimeUnit.NANOSECONDS.toMillis(t1 - t0);
-        System.out.println(String.format("sequential sort took: %d ms", millis));
+        System.out.printf("sequential took: %d ms%n", t1-t0);
     }
 
-    public static void sortParallel() {
-        List<String> values = new ArrayList<>(MAX);
-        for (int i = 0; i < MAX; i++) {
-            UUID uuid = UUID.randomUUID();
-            values.add(uuid.toString());
-        }
-
-        // sequential
-
-        long t0 = System.nanoTime();
-
+    public static void countParallel(List<String> values) {
+        long t0 = System.currentTimeMillis();
         long count = values.parallelStream().count();
         System.out.println(count);
+        long t1 = System.currentTimeMillis();
 
-        long t1 = System.nanoTime();
-
-        long millis = TimeUnit.NANOSECONDS.toMillis(t1 - t0);
-        System.out.println(String.format("parallel sort took: %d ms", millis));
-    }
-
-    public static void main(String[] args) {
-        sortSequential();
-        sortParallel();
+        System.out.printf("parallel took: %d ms%n", t1-t0);
     }
 }

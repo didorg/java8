@@ -3,7 +3,6 @@ package com.didorg.stream.streamImpl;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
-import java.util.concurrent.TimeUnit;
 
 public class Streams3 {
 
@@ -22,7 +21,7 @@ public class Streams3 {
 
     public static void countSequential(List<String> values) {
         long t0 = System.currentTimeMillis();
-        // long count = values.size();
+        //long count = values.size();
         long count = values.stream().count();
         System.out.println(count);
         long t1 = System.currentTimeMillis();

@@ -1,17 +1,15 @@
 package com.didorg.stream.streamImpl;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 public class Streams1 {
 
     public static void main(String[] args) {
 
-        String input = "Speedment";
+        String input = "SpeedmEnt";
 
         String result = Stream.of(input.split(""))
                 .map(s -> s.charAt(0))
@@ -20,6 +18,14 @@ public class Streams1 {
                 .map(String::valueOf)
                 .collect(Collectors.joining());
         System.out.println(result); // -> deeem
+
+        // Using java 8, count occurrences of a character in a String
+        int count = (int) input.toLowerCase().chars()
+                .filter(c -> 'e' == c).count();
+
+        System.out.println("*************");
+        System.out.println(count);
+        System.out.println("*************");
 
         List<String> strings = new ArrayList<>();
         strings.add("ddd2");

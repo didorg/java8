@@ -3,7 +3,8 @@
 ### To detect a memory leak  
 Memory Profilers:    
 - Java VisualVM (tool that can monitor memory usage and help detect memory leaks) 
- https://visualvm.github.io/download.html
+ https://visualvm.github.io/download.html  
+  - `Visual GC plugin` 
 
 ****************************************************************************  
 Other documentation:  
